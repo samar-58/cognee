@@ -7,6 +7,13 @@ from cognee.api.v1.health import health_checker, HealthStatus
 def get_health_router():
     health_router = APIRouter()
 
+    @health_router.get("/live", response_model=dict)
+    async def liveness_check():
+        """
+        Lightweight liveness probe for platform deploy healthchecks.
+        """
+        return {"status": "alive"}
+
     @health_router.get("", response_model=dict)
     async def health_check():
         """
