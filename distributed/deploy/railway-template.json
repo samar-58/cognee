@@ -56,7 +56,7 @@
         "VECTOR_DB_URL": {
           "default": "postgresql://${{postgres.PGUSER}}:${{postgres.PGPASSWORD}}@${{postgres.PGHOST}}:${{postgres.PGPORT}}/${{postgres.PGDATABASE}}"
         },
-        "HOST": {
+        "BIND_ADDRESS": {
           "default": "0.0.0.0"
         },
         "ENVIRONMENT": {

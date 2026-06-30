@@ -7,10 +7,11 @@ ENV="${ENV:-${ENVIRONMENT:-}}"
 echo "Debug mode: $DEBUG"
 echo "Environment: $ENV"
 
-# Set default ports and bind address if not specified
+# Set default ports and bind address if not specified.
+# Railway injects PORT; keep HTTP_PORT as the explicit Cognee override.
 DEBUG_PORT=${DEBUG_PORT:-5678}
-HTTP_PORT=${HTTP_PORT:-8000}
-BIND_ADDRESS=${BIND_ADDRESS:-"0.0.0.0"}
+HTTP_PORT=${HTTP_PORT:-${PORT:-8000}}
+BIND_ADDRESS=${BIND_ADDRESS:-${HOST:-"0.0.0.0"}}
 echo "Debug port: $DEBUG_PORT"
 echo "HTTP port: $HTTP_PORT"
 echo "Bind address: $BIND_ADDRESS"
